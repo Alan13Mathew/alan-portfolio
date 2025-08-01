@@ -47,12 +47,11 @@ const Projects = () => {
       title: "Portfolio Website",
       description:
         "A modern, responsive portfolio website showcasing my work and skills. Built with React and styled with Tailwind CSS.",
-      image:
-        "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop",
+      image: "https://media.tenor.com/UNHZo457F_kAAAA1/website-welcome.webp",
       category: "frontend",
       technologies: ["React", "Tailwind CSS", "Framer Motion"],
       liveUrl: "#",
-      githubUrl: "#",
+      githubUrl: "https://github.com/Alan13Mathew/alan-portfolio",
     },
     {
       id: 5,

@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      <Router basename="/alan-portfolio">
         <Nav />
         <div className="pt-16">
           <Routes>
