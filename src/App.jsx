@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   Navigate,
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <Router basename="/alan-portfolio">
+      <Router>
         <Nav />
         <div className="pt-16">
           <Routes>
@@ -26,6 +26,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </div>
         <Footer />
