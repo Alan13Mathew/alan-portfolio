@@ -62,7 +62,7 @@ const Projects = () => {
       category: "fullstack",
       technologies: ["Angular", "Nodejs", "Angular Material"],
       liveUrl: "#",
-      githubUrl: "https://github.com/Alan13Mathew/MockBankApp",
+      githubUrl: "https://github.com/Alan13Mathew/expense-tracker-frontend",
     },
     {
       id: 6,
