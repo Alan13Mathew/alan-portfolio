@@ -21,7 +21,7 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
+  const SCRIPT_URL = import.meta.env.VITE_CONTACT_API_URL;
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -32,16 +32,39 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    try {
+      const formBody = new URLSearchParams(formData).toString();
 
-    // Simulate form submission
-    setTimeout(() => {
+      const response = await fetch(SCRIPT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+        },
+        body: formBody,
+      });
+
+      const text = await response.text();
+
+      if (text === "success") {
+        setSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+        setTimeout(() => {
+          setSubmitted(false);
+        }, 3000);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      alert("Failed to send message.");
+      console.error(err);
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-
-      // Reset success message after 3 seconds
-      setTimeout(() => setSubmitted(false), 3000);
-    }, 1000);
+    }
   };
 
   const socialLinks = [
